@@ -13,9 +13,10 @@ function App() {
     setInputText("")
   }
 
-  // function deleteItem(){
-
-  // }
+  function deleteItem(id) {
+    // console.log(id + " is the value")
+    setList(prevValues => prevValues.filter((value, index) => index !== id))
+  }
 
   function handleChange(event) {
     setInputText(event.target.value)
@@ -34,8 +35,8 @@ function App() {
       </div>
       <div>
         <ul>
-          {list.map(listValue => (
-            <ListItem text={listValue}/>
+          {list.map((listValue, listIndex) => (
+            <ListItem text={listValue} onCheck={deleteItem} key={listIndex} id={listIndex} />
           ))}
         </ul>
       </div>
