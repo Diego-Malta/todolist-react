@@ -1,25 +1,20 @@
 import React, { useState } from "react";
 import ListItem from "./ListItem";
+import InputArea from "./InputArea";
 
 function App() {
 
-  const [inputText, setInputText] = useState("")
+
   const [list, setList] = useState([])
 
-  function addItem() {
+  function addItem(inputText) {
     inputText !== "" && setList(
       [...list, inputText]
     )
-    setInputText("")
   }
 
   function deleteItem(id) {
-    // console.log(id + " is the value")
     setList(prevValues => prevValues.filter((value, index) => index !== id))
-  }
-
-  function handleChange(event) {
-    setInputText(event.target.value)
   }
 
   return (
@@ -27,12 +22,9 @@ function App() {
       <div className="heading">
         <h1>To-Do List</h1>
       </div>
-      <div className="form">
-        <input type="text" name="listItem" value={inputText} onChange={handleChange} />
-        <button onClick={addItem}>
-          <span>Add</span>
-        </button>
-      </div>
+      <InputArea
+        onAdd={addItem}
+      />
       <div>
         <ul>
           {list.map((listValue, listIndex) => (
