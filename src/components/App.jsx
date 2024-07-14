@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ListItem from "./ListItem";
 
 function App() {
 
@@ -11,6 +12,10 @@ function App() {
     )
     setInputText("")
   }
+
+  // function deleteItem(){
+
+  // }
 
   function handleChange(event) {
     setInputText(event.target.value)
@@ -30,7 +35,7 @@ function App() {
       <div>
         <ul>
           {list.map(listValue => (
-            <li>{listValue}</li>
+            <ListItem text={listValue}/>
           ))}
         </ul>
       </div>
