@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+// import { Fab } from '@mui/material';
+// import AddIcon from '@mui/icons-material/Add';
+// import { Fab, AddIcon } from '@mui/material';
 
 function InputArea(props) {
 
@@ -16,6 +19,7 @@ function InputArea(props) {
         setInputText("")
       }}>
         <span>Add</span>
+        {/* <span><AddIcon /></span> */}
       </button>
     </div>
   )
